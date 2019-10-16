@@ -16,8 +16,7 @@ public class Empresarial extends Tour {
 		this.viajeroFrecuente = viajeroFrecuente;
 		this.tipo = tipo;
 	}
-	
-	public 
+
 	
 	
 }
