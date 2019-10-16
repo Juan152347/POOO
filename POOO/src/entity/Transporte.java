@@ -2,7 +2,8 @@ package entity;
 
 import enu.TipoTransporte;
 
-public class Transporte implements ServicioAdicional{
+public class Transporte extends  ServicioAdicional{
+	
 	private double distancia;
 	private TipoTransporte tipo;
 	private int numeroPasajeros;
