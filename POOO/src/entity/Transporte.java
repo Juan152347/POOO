@@ -33,6 +33,7 @@ public class Transporte implements ServicioAdicional{
 		this.distancia = distancia;
 		this.tipo = tipo;
 		this.numeroPasajeros = numeroPasajeros;
+		
 	}
 	
 	
