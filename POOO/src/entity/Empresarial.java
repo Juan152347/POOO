@@ -17,5 +17,7 @@ public class Empresarial extends Tour {
 		this.tipo = tipo;
 	}
 	
+	public 
+	
 	
 }
