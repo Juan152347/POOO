@@ -37,13 +37,10 @@ public class Transporte implements ServicioAdicional{
 		
 	}
 	
-	
-=======
 	@Override
 	public double calcularPrecio() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
->>>>>>> branch 'master' of https://github.com/Juan152347/POOO.git
+
 }
