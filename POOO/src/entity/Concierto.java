@@ -1,5 +1,5 @@
 package entity;
 
-public class Concierto {
+public class Concierto implements ServicioAdicional {
 
 }

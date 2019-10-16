@@ -1,5 +1,5 @@
 package entity;
 
-public class Ecologico {
+public class Ecologico extends Tour {
 
 }

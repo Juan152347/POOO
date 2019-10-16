@@ -1,5 +1,5 @@
 package entity;
 
-public class Empresarial {
+public class Empresarial extends Tour {
 
 }

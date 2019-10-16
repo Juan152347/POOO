@@ -1,5 +1,5 @@
 package entity;
 
-public class Transporte {
+public class Transporte implements ServicioAdicional{
 
 }
