@@ -2,7 +2,7 @@ package entity;
 
 import enu.TipoTransporte;
 
-public class Transporte implements ServicioAdicional{
+public class Transporte extends ServicioAdicional{
 	private double distancia;
 	private TipoTransporte tipo;
 	private int numeroPasajeros;
@@ -39,10 +39,7 @@ public class Transporte implements ServicioAdicional{
 		
 	}
 	
-	@Override
-	public double calcularPrecio() {
-		return 0;
-	}
+
 
 
 }
