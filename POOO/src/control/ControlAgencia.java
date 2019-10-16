@@ -9,9 +9,15 @@ import entity.Reserva;
 import entity.Tour;
 
 public class ControlAgencia {
-private GestionCliente gestioncliente;
-private GestionTours gestiontours;
-private Map<Integer,Tour> listaTours=new HashMap<>();
-private Map<Integer,Cliente> listaClientes=new HashMap<>();
-private ArrayList<Reserva> reservas;
+	private GestionCliente gestioncliente;
+	private GestionTours gestiontours;
+	private Map<Integer, Tour> listaTours = new HashMap<>();
+	private Map<Integer, Cliente> listaClientes = new HashMap<>();
+	private ArrayList<Reserva> reservas;
+
+	public void verListatours() {
+		for (Tour tour : listaTours.values()) {
+			System.out.println(tour.toString());
+		}
+   	}
 }

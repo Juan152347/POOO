@@ -1,6 +1,6 @@
 package entity;
 
-public class Concierto implements ServicioAdicional {
+public class Concierto extends ServicioAdicional {
 	private String artista;
 	private String lugar;
 	private String horaIngreso;
@@ -39,11 +39,7 @@ public class Concierto implements ServicioAdicional {
 	
 	
 
-	@Override
-	public double calcularPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 
 }
