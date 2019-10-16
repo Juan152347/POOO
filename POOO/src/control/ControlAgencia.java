@@ -7,8 +7,8 @@ import entity.Cliente;
 import entity.Tour;
 
 public class ControlAgencia {
-GestionCliente gestioncliente;
-GestionTours gestiontours;
-Map<Integer,Tour> listaTours=new HashMap<>();
-Map<Integer,Cliente> listaClientes=new HashMap<>();
+private GestionCliente gestioncliente;
+private GestionTours gestiontours;
+private Map<Integer,Tour> listaTours=new HashMap<>();
+private Map<Integer,Cliente> listaClientes=new HashMap<>();
 }
