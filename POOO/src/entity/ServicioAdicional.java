@@ -1,9 +1,9 @@
 package entity;
 
-public interface ServicioAdicional {
+public abstract class ServicioAdicional {
 
-	double distancia=0; 
-	String descripcion="Hola Mundo";
-	double preicio=0;
-	double calcularPrecio();
+	public double distancia;
+	public String descripcion;
+	public double preicio;
+	public abstract double calcularPrecioo();
 }
