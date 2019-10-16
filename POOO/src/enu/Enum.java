@@ -1,5 +1,5 @@
 package enu;
 
-public class Enum {
-
+public enum Enum {
+TAXI,MINIVAN,PARTILCULAR;
 }
