@@ -11,6 +11,7 @@ public class Concierto implements ServicioAdicional {
 		this.horaIngreso = horaIngreso;
 	}
 
+<<<<<<< HEAD
 	public String getArtista() {
 		return artista;
 	}
@@ -37,4 +38,12 @@ public class Concierto implements ServicioAdicional {
 	
 	
 	
+=======
+	@Override
+	public double calcularPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+>>>>>>> branch 'master' of https://github.com/Juan152347/POOO.git
 }

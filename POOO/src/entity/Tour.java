@@ -60,7 +60,7 @@ public class Tour {
 		this.precio = precio;
 	}
 	public String toString() {
-		//return ""
+	    return "Codigo Identidad:"+" "+this.codigoIdentidad+" "+ "Nombre Comercial:"+" "+this.nombreComercial+"  "+"Lugar de partida:"+" "+this.lugarPartida+" "+;
 	}
 	
 	

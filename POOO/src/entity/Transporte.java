@@ -9,6 +9,7 @@ public class Transporte implements ServicioAdicional{
 		return distancia;
 	}
 
+<<<<<<< HEAD
 	public void setDistancia(double distancia) {
 		this.distancia = distancia;
 	}
@@ -37,4 +38,12 @@ public class Transporte implements ServicioAdicional{
 	}
 	
 	
+=======
+	@Override
+	public double calcularPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+>>>>>>> branch 'master' of https://github.com/Juan152347/POOO.git
 }
