@@ -1,5 +1,7 @@
 package entity;
 
+import enu.TipoTransporte;
+
 public class Transporte implements ServicioAdicional{
 	private double distancia;
 	private TipoTransporte tipo;
@@ -9,7 +11,7 @@ public class Transporte implements ServicioAdicional{
 		return distancia;
 	}
 
-<<<<<<< HEAD
+
 	public void setDistancia(double distancia) {
 		this.distancia = distancia;
 	}
