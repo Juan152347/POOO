@@ -4,7 +4,7 @@ public abstract class   ServicioAdicional {
  
 	public long codigoServicio;
 	public String descripcion;
-	public double precio;
+	public double precioo;
 	
 	public abstract double calcularPrecio();
 }
