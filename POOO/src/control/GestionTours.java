@@ -47,6 +47,8 @@ public class GestionTours {
 				case 1:
 
 					System.out.println("Ingrese su nuevo codigo de identificación: ");
+					long cod=x.nextLong();
+					
 					
 					break;
 
@@ -71,7 +73,7 @@ public class GestionTours {
 
 				}
 
-			} while (p != 6);
+			} while (p != 7);
 		}
 
 		else {
