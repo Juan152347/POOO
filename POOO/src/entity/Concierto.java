@@ -73,6 +73,7 @@ public class Concierto extends ServicioAdicional {
 				return nuevoPrecio;
 			}
 		}
+		return precio;
 	}
 	
 
