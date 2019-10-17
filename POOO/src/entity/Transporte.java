@@ -35,13 +35,23 @@ public class Transporte extends  ServicioAdicional{
 		this.numeroPasajeros = numeroPasajeros;
 	}
 
-	public Transporte(double distancia, TipoTransporte tipo, int numeroPasajeros) {
-		this.distancia = distancia;
-		this.tipo = tipo;
-		this.numeroPasajeros = numeroPasajeros;
-		
+
+	public Transporte(long codigoServicio, String descripcion, double precio, double distancia, TipoTransporte tipo,
+	int numeroPasajeros) {
+	super(codigoServicio, descripcion, precio);
+	this.distancia = distancia;
+	this.tipo = tipo;
+	this.numeroPasajeros = numeroPasajeros;
 	}
 
+
+	@Override
+	public double calcularPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 	
 
 
