@@ -20,6 +20,11 @@ public class ControlAgencia {
 			System.out.println(tour.toString());
 		}
    	}
+	public void verListacliente() {
+		for(Cliente cliente:listaClientes.values()) {
+			System.out.println(cliente.toString());
+		}
+	}
 	public boolean validarTour(long codigo) {
 		if (codigo > 1000000 && codigo < 10000000) {
 			return true;
