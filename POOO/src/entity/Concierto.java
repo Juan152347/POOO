@@ -41,8 +41,38 @@ public class Concierto extends ServicioAdicional {
 
 	@Override
 	public double calcularPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
+		String h = horaIngreso.substring(0, 1);
+		int num = Integer.valueOf(h).intValue();
+		String grado = horaIngreso.substring(1);
+		double descuento;
+		double nuevoPrecio;
+		boolean compararP = grado.equalsIgnoreCase("pm");
+		boolean compararA = grado.equalsIgnoreCase("am");
+		
+		if(compararP == true) {
+			for(int i= 6; i<12; i-=-1) {
+				if(num == i) {
+					descuento = precio*0.10;
+					nuevoPrecio= precio + descuento;
+					return nuevoPrecio;
+				}
+			}
+		}
+		
+		if(compararA ==true) {
+			for(int i = 1; i<=6; i-=-1) {
+				if(num == i) {
+					descuento = precio*0.10;
+					nuevoPrecio = precio + descuento;
+					return nuevoPrecio;
+				}
+			}
+			if(num == 12) {
+				descuento = precio*0.10;
+				nuevoPrecio = precio + descuento;
+				return nuevoPrecio;
+			}
+		}
 	}
 	
 
