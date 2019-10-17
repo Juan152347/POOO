@@ -1,24 +1,21 @@
 package entity;
-
+import java.lang.Math;
 import enu.TipoTransporte;
 
-
-public class Transporte extends  ServicioAdicional{
-
+public class Transporte extends ServicioAdicional {
 
 	private double distancia;
 	private TipoTransporte tipo;
 	private int numeroPasajeros;
-	
+
 	public double getDistancia() {
 		return distancia;
 	}
 
-
 	public void setDistancia(double distancia) {
 		this.distancia = distancia;
 	}
-	
+
 	public TipoTransporte getTipo() {
 		return tipo;
 	}
@@ -35,46 +32,39 @@ public class Transporte extends  ServicioAdicional{
 		this.numeroPasajeros = numeroPasajeros;
 	}
 
-
 	public Transporte(long codigoServicio, String descripcion, double precio, double distancia, TipoTransporte tipo,
-	int numeroPasajeros) {
-		
-	super(codigoServicio, descripcion, precio);
-	this.distancia = distancia;
-	this.tipo = tipo;
-	this.numeroPasajeros = numeroPasajeros;
-	}
+			int numeroPasajeros) {
 
+		super(codigoServicio, descripcion, precio);
+		this.distancia = distancia;
+		this.tipo = tipo;
+		this.numeroPasajeros = numeroPasajeros;
+	}
 
 	@Override
 	public double calcularPrecio() {
-	
-			double aumento;
+		int cantbuses = (int)Math.ceil(this.numeroPasajeros / this.tipo.getCanpasajero());
+		
+		double aumento;
 
-			if(tipo==TipoTransporte.MINIVAN) {
+		if (tipo == TipoTransporte.MINIVAN) {
 
-
-				precio=(distancia*precio);
-				aumento = precio*0.5;
-				precio+=aumento;
-				if(numeroPasajeros>4) {
-					
-				}
-			}
-			if(tipo==TipoTransporte.PARTILCULAR) {
-
-				precio=(distancia*precio);
-				aumento = precio*0.25;
-				precio+=aumento;
+			precio = (distancia * precio);
+			aumento = precio * 0.5;
+			precio += aumento;
 
 		}
-			
-		return precio ;
+		if (tipo == TipoTransporte.PARTILCULAR)
+
+		{
+
+			precio = (distancia * precio);
+			aumento = precio * 0.25;
+			precio += aumento;
+
+		}
+
+		return precio;
 	}
-
-	
-	
-
-
 
 }
