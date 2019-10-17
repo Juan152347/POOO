@@ -9,9 +9,9 @@ public class Empresarial extends Tour {
 	private boolean viajeroFrecuente;
 	private TipoEmpresa tipo;
 	
-	public Empresarial(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso,
+	public Empresarial( String nombreComercial, String lugarPartida, Date fechaRegreso,
 			Date fechaSalida, double precio, String nombreEmpresa, boolean viajeroFrecuente, TipoEmpresa tipo) {
-		super(codigoIdentidad, nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio);
+		super( nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio);
 		this.nombreEmpresa = nombreEmpresa;
 		this.viajeroFrecuente = viajeroFrecuente;
 		this.tipo = tipo;
