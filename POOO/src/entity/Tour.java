@@ -1,6 +1,6 @@
 package entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Tour {
  
@@ -10,16 +10,17 @@ public class Tour {
     private Date fechaSalida;
 	private double precio;
 	
-	public Tour( String nombreComercial, String lugarPartida, Date fechaRegreso, Date fechaSalida,
-			double precio) {
-
+	
+	
+	public Tour(String nombreComercial, String lugarPartida, Date fechaRegreso, Date fechaSalida, double precio) {
 		this.nombreComercial = nombreComercial;
 		this.lugarPartida = lugarPartida;
 		this.fechaRegreso = fechaRegreso;
 		this.fechaSalida = fechaSalida;
 		this.precio = precio;
 	}
-	
+
+
 	public Tour() {
 	}
 

@@ -1,7 +1,8 @@
 package control;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class GestionTours {
 			double precio,HashMap<Long,Tour> listatours) {
 		
 		ControlAgencia ca = new ControlAgencia();
-		Tour ntour = new Tour(nombreComercial, lugarPartida, fechaRegreso, fechaSalida,precio);
+		Tour ntour = new Tour(nombreComercial,lugarPartida,fechaRegreso,fechaSalida,precio);
 		
 		
 		if (ca.validarTour(codigoIdentidad) == true) {
@@ -59,9 +60,19 @@ public class GestionTours {
 					listatours.get(codigo).setNombreComercial(x.nextLine());
 					break;
 				case 3:
-					System.out.println("Igrese la nueva fecha de regreso");
+					System.out.println("Ingrese año de regreso:");
 					//listatours.get(codigo).setFechaRegreso();
-					Date a;
+					int ano=x.nextInt();
+					System.out.println("Ingrese mes de regreso:");
+					int mes=x.nextInt();
+					System.out.println("Ingrese dia de regreso:");
+					int dia=x.nextInt();
+					Calendar cal= Calendar.getInstance();
+					cal.set(ano, mes, dia);
+					cal.setTimeInMillis(0);
+					Date dat=new Date();
+					 dat=cal.getTime();
+					//listatours.get(codigo).setFechaRegreso(fechaRegreso);
 					break;
 
 				case 6:
