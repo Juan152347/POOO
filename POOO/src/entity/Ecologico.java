@@ -22,7 +22,10 @@ public class Ecologico extends Tour {
 		if (dificilAcceso) {
 		dias=dias+2;
 		}
-		return (int) ((dias*getPrecio())+(((dias*getPrecio())*impuestoLocal)/100));
+		return (int) dias;
 	}
-	
+	@Override
+	public double calcularPrecio() {
+		return ((calcularEstadia()*getPrecio())+((calcularEstadia()*getPrecio())*impuestoLocal)/100);
+	}
 }

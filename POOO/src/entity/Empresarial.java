@@ -17,6 +17,15 @@ public class Empresarial extends Tour {
 		this.tipo = tipo;
 	}
 
+	@Override
+	public double calcularPrecio() {
+		double preci;
+		preci=super.calcularEstadia()*getPrecio();
+		if(tipo==TipoEmpresa.MEDIO_COMUNICACION||tipo==TipoEmpresa.TURISMO) {
+			preci=preci*0.9;
+		}
+		return preci;
+	}
 	
 	
 }

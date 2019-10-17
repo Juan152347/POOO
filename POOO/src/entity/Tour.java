@@ -58,14 +58,17 @@ public class Tour {
 	public String toString() {
 	    return  "Nombre Comercial:"+" "+
 	      this.nombreComercial+"/n"+"Lugar de partida:"+" "+this.lugarPartida+"/n"+"fecha regreso:"+" "+
-	    this.fechaRegreso+"/n"+"fecha salida:"+" "+this.fechaSalida+"/n"+"precio:"+" "+this.precio;
+	    this.fechaRegreso+"/n"+"fecha salid	a:"+" "+this.fechaSalida+"/n"+"precio:"+" "+this.precio;
 	}
 	
 	public int  calcularEstadia () {
 		
 		long mils=Math.abs(fechaRegreso.getTime())-Math.abs(fechaSalida.getTime());
 		long dias= Math.abs(mils/1000/60/60/24);
-		return (int) (dias*precio);
+		return (int) dias;
 		
+	}
+	public double calcularPrecio() {
+		return (calcularEstadia()*precio);
 	}
 }
