@@ -9,14 +9,15 @@ import entity.Tour;
 
 public class GestionTours {
 	public boolean insertarTour(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso, Date fechaSalida,
-			double precio,HashMap<Integer,Tour> listatours) {
-		int cont=0;
+			double precio,HashMap<Long,Tour> listatours) {
+		
 		ControlAgencia ca = new ControlAgencia();
-		Tour ntour = new Tour(codigoIdentidad,nombreComercial, lugarPartida, fechaRegreso, fechaSalida,precio);
+		Tour ntour = new Tour(nombreComercial, lugarPartida, fechaRegreso, fechaSalida,precio);
 		
 		
 		if (ca.validarTour(codigoIdentidad) == true) {
-			listatours.put(cont, ntour);
+			listatours.put(codigoIdentidad, ntour);
+			
 		}
 		if (ca.validarTour(codigoIdentidad) == false) {
 			System.out.println("codigo no permitido");
@@ -24,7 +25,7 @@ public class GestionTours {
 		}
 		return true;
 	}
-	public void ModificarTour(long codigo, HashMap<Integer,Tour> listatours) {
+	public void ModificarTour(long codigo, HashMap<Long,Tour> listatours) {
 
 		Scanner x = new Scanner(System.in);
 		int p = 0;
@@ -45,20 +46,27 @@ public class GestionTours {
 				switch (p) {
 
 				case 1:
-
 					System.out.println("Ingrese su nuevo codigo de identificación: ");
 					long cod=x.nextLong();
-					
-					
+					Tour aux=new Tour();
+					aux=listatours.get(codigo);
+					listatours.remove(codigo);
+					listatours.put(cod, aux);	
 					break;
 
 				case 2:
 					System.out.println("Ingrese su nuevo nombre comercial: ");
-					
+					listatours.get(codigo).setNombreComercial(x.nextLine());
+					break;
+				case 3:
+					System.out.println("Igrese la nueva fecha de regreso");
+					//listatours.get(codigo).setFechaRegreso();
+					Date a;
 					break;
 
-				case 3:
+				case 6:
 					System.out.println("ingrese su nuevo lugar de partida: ");
+					listatours.get(codigo).setLugarPartida(x.nextLine());
 					
 
 				case 4:
@@ -80,14 +88,12 @@ public class GestionTours {
 			System.out.println("El Tour solicitado no existe");
 		}
 	}
-	public boolean VerificarExistencia(long codigo, HashMap<Integer,Tour> listaTours) {
-		for (Tour tour : listaTours.values()) {
-			if (codigo == tour.getCodigoIdentidad()) {
-				return true;
-			}
-
+	public boolean VerificarExistencia(long codigo, HashMap<Long,Tour> listaTours) {
+		if (listaTours.get(codigo)!=null) {
+			return true;
+		}else {
+			return false;
 		}
-		return false;
 	}
 	
 	

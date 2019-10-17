@@ -3,16 +3,16 @@ package entity;
 import java.sql.Date;
 
 public class Tour {
-	private long codigoIdentidad;
+ 
 	private String nombreComercial;
 	private String lugarPartida;
     private Date fechaRegreso;
     private Date fechaSalida;
 	private double precio;
 	
-	public Tour(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso, Date fechaSalida,
+	public Tour( String nombreComercial, String lugarPartida, Date fechaRegreso, Date fechaSalida,
 			double precio) {
-		this.codigoIdentidad = codigoIdentidad;
+
 		this.nombreComercial = nombreComercial;
 		this.lugarPartida = lugarPartida;
 		this.fechaRegreso = fechaRegreso;
@@ -23,12 +23,7 @@ public class Tour {
 	public Tour() {
 	}
 
-	public long getCodigoIdentidad() {
-		return codigoIdentidad;
-	}
-	public void setCodigoIdentidad(long codigoIdentidad) {
-		this.codigoIdentidad = codigoIdentidad;
-	}
+
 	public String getNombreComercial() {
 		return nombreComercial;
 	}
@@ -60,7 +55,7 @@ public class Tour {
 		this.precio = precio;
 	}
 	public String toString() {
-	    return "Codigo Identidad:"+" "+this.codigoIdentidad+" "+ "Nombre Comercial:"+" "+
+	    return "Codigo Identidad:"+" "+ "Nombre Comercial:"+" "+
 	      this.nombreComercial+"  "+"Lugar de partida:"+" "+this.lugarPartida+" "+"fecha regreso:"+" "+
 	    this.fechaRegreso+" "+"fecha salida:"+" "+this.fechaSalida+" "+"precio:"+" "+this.precio;
 	}
