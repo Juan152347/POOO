@@ -32,23 +32,36 @@ public class Transporte extends ServicioAdicional {
 		this.numeroPasajeros = numeroPasajeros;
 	}
 
-	public Transporte(double distancia, TipoTransporte tipo, int numeroPasajeros) {
-		this.distancia = distancia;
-		this.tipo = tipo;
-		this.numeroPasajeros = numeroPasajeros;
+	
 
+	public Transporte(long codigoServicio, String descripcion, double precio, double distancia, TipoTransporte tipo,
+	int numeroPasajeros) {
+	super(codigoServicio, descripcion, precio);
+	this.distancia = distancia;
+	this.tipo = tipo;
+	this.numeroPasajeros = numeroPasajeros;
 	}
 
 	@Override
 	public double calcularPrecio() {
-		
+		double aumento;
 			
 		if(tipo==TipoTransporte.MINIVAN) {
-			precio=distancia*0.5;
+			
+			
+			precio=(distancia*precio);
+			aumento = precio*0.5;
+			precio+=aumento;
+			if(numeroPasajeros>4) {}
 		}
 		if(tipo==TipoTransporte.PARTILCULAR) {
-			precio=distancia*0.25;
+			
+			precio=(distancia*precio);
+			aumento = precio*0.25;
+			precio+=aumento;
+			
 	}
+		
 		return precio;
 	}
 

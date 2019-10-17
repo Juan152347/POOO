@@ -4,13 +4,14 @@ public class Concierto extends ServicioAdicional {
 	private String artista;
 	private String lugar;
 	private String horaIngreso;
-	
-	public Concierto(String artista, String lugar, String horaIngreso) {
-		this.artista = artista;
-		this.lugar = lugar;
-		this.horaIngreso = horaIngreso;
-	}
 
+	public Concierto(long codigoServicio, String descripcion, double precio, String artista, String lugar,
+	String horaIngreso) {
+	super(codigoServicio, descripcion, precio);
+	this.artista = artista;
+	this.lugar = lugar;
+	this.horaIngreso = horaIngreso;
+	}
 
 	public String getArtista() {
 		return artista;
@@ -35,11 +36,11 @@ public class Concierto extends ServicioAdicional {
 	public void setHoraIngreso(String horaIngreso) {
 		this.horaIngreso = horaIngreso;
 	}
-	
-	
-	
 
-	
-
+	@Override
+	public double calcularPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
