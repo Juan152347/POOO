@@ -61,7 +61,6 @@ public class GestionTours {
 					break;
 				case 3:
 					System.out.println("Ingrese año de regreso:");
-					//listatours.get(codigo).setFechaRegreso();
 					int ano=x.nextInt();
 					System.out.println("Ingrese mes de regreso:");
 					int mes=x.nextInt();
@@ -70,9 +69,9 @@ public class GestionTours {
 					Calendar cal= Calendar.getInstance();
 					cal.set(ano, mes, dia);
 					cal.setTimeInMillis(0);
-					Date dat=new Date();
-					 dat=cal.getTime();
-					//listatours.get(codigo).setFechaRegreso(fechaRegreso);
+					Date dat=cal.getTime();
+					
+					listatours.get(codigo).setFechaRegreso(dat);
 					break;
 
 				case 6:
@@ -81,13 +80,24 @@ public class GestionTours {
 					
 
 				case 4:
-					System.out.println("Ingrese nu nueva hora de partida:");
-					
+					System.out.println("Ingrese fecha de salida");
+					System.out.println();
+					System.out.println("Ingrese año de regreso:");
+					int ano1=x.nextInt();
+					System.out.println("Ingrese mes de regreso:");
+					int mes1=x.nextInt();
+					System.out.println("Ingrese dia de regreso:");
+					int dia1=x.nextInt();
+					Calendar cal1= Calendar.getInstance();
+					cal1.set(ano1, mes1, dia1);
+					cal1.setTimeInMillis(0);
+					Date dat1=cal1.getTime();
+					listatours.get(codigo).setFechaSalida(dat1);
 					break;
 
 				case 5:
 					System.out.println("Ingrese su nuevo precio: ");
-					
+					listatours.get(codigo).setPrecio(x.nextDouble());
 					break;
 
 				}
@@ -99,6 +109,9 @@ public class GestionTours {
 			System.out.println("El Tour solicitado no existe");
 		}
 	}
+	public Tour buscarTour(long cod, HashMap<Long,Tour> listatours) {
+		return listatours.get(cod);
+	}
 	public boolean VerificarExistencia(long codigo, HashMap<Long,Tour> listaTours) {
 		if (listaTours.get(codigo)!=null) {
 			return true;
@@ -106,6 +119,8 @@ public class GestionTours {
 			return false;
 		}
 	}
-	
+	public void eliminarTour(long cod,HashMap<Long,Tour> listatours) {
+		listatours.remove(cod);
+	}
 	
 }
