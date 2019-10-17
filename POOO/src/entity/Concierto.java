@@ -35,6 +35,13 @@ public class Concierto extends ServicioAdicional {
 	public void setHoraIngreso(String horaIngreso) {
 		this.horaIngreso = horaIngreso;
 	}
+
+
+	@Override
+	public double calcularPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	
