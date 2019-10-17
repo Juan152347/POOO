@@ -9,16 +9,15 @@ import java.util.Scanner;
 import entity.Tour;
 
 public class GestionTours {
-	public boolean insertarTour(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso, Date fechaSalida,
-			double precio,HashMap<Long,Tour> listatours) {
-		
+	public boolean insertarTour(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso,
+			Date fechaSalida, double precio, HashMap<Long, Tour> listatours) {
+
 		ControlAgencia ca = new ControlAgencia();
-		Tour ntour = new Tour(nombreComercial,lugarPartida,fechaRegreso,fechaSalida,precio);
-		
-		
+		Tour ntour = new Tour(nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio);
+
 		if (ca.validarTour(codigoIdentidad) == true) {
 			listatours.put(codigoIdentidad, ntour);
-			
+
 		}
 		if (ca.validarTour(codigoIdentidad) == false) {
 			System.out.println("codigo no permitido");
@@ -26,7 +25,8 @@ public class GestionTours {
 		}
 		return true;
 	}
-	public void ModificarTour(long codigo, HashMap<Long,Tour> listatours) {
+
+	public void ModificarTour(long codigo, HashMap<Long, Tour> listatours) {
 
 		Scanner x = new Scanner(System.in);
 		int p = 0;
@@ -48,11 +48,11 @@ public class GestionTours {
 
 				case 1:
 					System.out.println("Ingrese su nuevo codigo de identificación: ");
-					long cod=x.nextLong();
-					Tour aux=new Tour();
-					aux=listatours.get(codigo);
+					long cod = x.nextLong();
+					Tour aux = new Tour();
+					aux = listatours.get(codigo);
 					listatours.remove(codigo);
-					listatours.put(cod, aux);	
+					listatours.put(cod, aux);
 					break;
 
 				case 2:
@@ -61,37 +61,36 @@ public class GestionTours {
 					break;
 				case 3:
 					System.out.println("Ingrese año de regreso:");
-					int ano=x.nextInt();
+					int ano = x.nextInt();
 					System.out.println("Ingrese mes de regreso:");
-					int mes=x.nextInt();
+					int mes = x.nextInt();
 					System.out.println("Ingrese dia de regreso:");
-					int dia=x.nextInt();
-					Calendar cal= Calendar.getInstance();
+					int dia = x.nextInt();
+					Calendar cal = Calendar.getInstance();
 					cal.set(ano, mes, dia);
 					cal.setTimeInMillis(0);
-					Date dat=cal.getTime();
-					
+					Date dat = cal.getTime();
+
 					listatours.get(codigo).setFechaRegreso(dat);
 					break;
 
 				case 6:
 					System.out.println("ingrese su nuevo lugar de partida: ");
 					listatours.get(codigo).setLugarPartida(x.nextLine());
-					
 
 				case 4:
 					System.out.println("Ingrese fecha de salida");
 					System.out.println();
 					System.out.println("Ingrese año de regreso:");
-					int ano1=x.nextInt();
+					int ano1 = x.nextInt();
 					System.out.println("Ingrese mes de regreso:");
-					int mes1=x.nextInt();
+					int mes1 = x.nextInt();
 					System.out.println("Ingrese dia de regreso:");
-					int dia1=x.nextInt();
-					Calendar cal1= Calendar.getInstance();
+					int dia1 = x.nextInt();
+					Calendar cal1 = Calendar.getInstance();
 					cal1.set(ano1, mes1, dia1);
 					cal1.setTimeInMillis(0);
-					Date dat1=cal1.getTime();
+					Date dat1 = cal1.getTime();
 					listatours.get(codigo).setFechaSalida(dat1);
 					break;
 
@@ -109,18 +108,21 @@ public class GestionTours {
 			System.out.println("El Tour solicitado no existe");
 		}
 	}
-	public Tour buscarTour(long cod, HashMap<Long,Tour> listatours) {
+
+	public Tour buscarTour(long cod, HashMap<Long, Tour> listatours) {
 		return listatours.get(cod);
 	}
-	public boolean VerificarExistencia(long codigo, HashMap<Long,Tour> listaTours) {
-		if (listaTours.get(codigo)!=null) {
+
+	public boolean VerificarExistencia(long codigo, HashMap<Long, Tour> listaTours) {
+		if (listaTours.get(codigo) != null) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	public void eliminarTour(long cod,HashMap<Long,Tour> listatours) {
+
+	public void eliminarTour(long cod, HashMap<Long, Tour> listatours) {
 		listatours.remove(cod);
 	}
-	
+
 }
