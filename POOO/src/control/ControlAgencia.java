@@ -11,8 +11,8 @@ import entity.Tour;
 public class ControlAgencia {
 	private GestionCliente gestioncliente;
 	private GestionTours gestiontours;
-	private Map<Integer, Tour> listaTours = new HashMap<>();
-	private Map<Integer, Cliente> listaClientes = new HashMap<>();
+	private Map<Long, Tour> listaTours = new HashMap<>();
+	private Map<Long, Cliente> listaClientes = new HashMap<>();
 	private ArrayList<Reserva> reservas;
 
 	public void verListatours() {
@@ -20,4 +20,13 @@ public class ControlAgencia {
 			System.out.println(tour.toString());
 		}
    	}
+	public boolean validarTour(long codigo) {
+		if (codigo > 1000000 && codigo < 10000000) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
 }

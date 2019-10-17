@@ -7,9 +7,9 @@ public class Ecologico extends Tour {
 	private double impuestoLocal;
 	private double dificilAcceso;
 	
-	public Ecologico(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso,
+	public Ecologico( String nombreComercial, String lugarPartida, Date fechaRegreso,
 			Date fechaSalida, double precio, boolean vacunacionRequerida, double impuestoLocal, double dificilAcceso) {
-		super(codigoIdentidad, nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio);
+		super( nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio);
 		this.vacunacionRequerida = vacunacionRequerida;
 		this.impuestoLocal = impuestoLocal;
 		this.dificilAcceso = dificilAcceso;
