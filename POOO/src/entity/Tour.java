@@ -61,7 +61,7 @@ public class Tour {
 	    this.fechaRegreso+" "+"fecha salida:"+" "+this.fechaSalida+" "+"precio:"+" "+this.precio;
 	}
 	
-	public int  calcularEstadia (Date fechaSalida, Date fechaRegreso,double precio) {
+	public int  calcularEstadia () {
 		
 		long mils=Math.abs(fechaRegreso.getTime())-Math.abs(fechaSalida.getTime());
 		long dias= Math.abs(mils/1000/60/60/24);
