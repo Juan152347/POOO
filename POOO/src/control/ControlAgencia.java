@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import entity.Cliente;
+import entity.Ecologico;
+import entity.Empresarial;
 import entity.Reserva;
 import entity.Tour;
 
@@ -32,6 +34,31 @@ public class ControlAgencia {
 			return false;
 		}
 
+	}
+	
+	public HashMap<Long,Tour> ecologico(){
+		HashMap<Long, Tour> toursEcologicos = new HashMap<>();
+		long cont = 0;
+		
+		for (Tour tourE : listaTours.values()) {
+			if(tourE instanceof Ecologico) {
+				toursEcologicos.put(cont, tourE);
+				cont++;
+			}
+		}
+		return toursEcologicos;
+	}
+	
+	public HashMap<Long, Reserva> reservaEmpresarial(){
+		HashMap<Long, Reserva> reservasEmp = new HashMap<>();
+		long cont = 0;
+		for (Reserva reservaEm : reservas.values()) {
+			if(reservaEm.getTourReservado() instanceof Empresarial) {
+				reservasEmp.put(cont, reservaEm);
+				cont ++;
+			}
+		}
+		return reservasEmp;
 	}
 	
 }

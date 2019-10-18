@@ -9,8 +9,22 @@ public class Reserva {
 	private Calendar fecha;
 	private boolean pagado;
 	private int cantidadPersona;
+	private Tour tourReservado;
+	private Cliente clienteReserva;
 	private ArrayList<ServicioAdicional> serviciosAdicionales;
 	
+	public Tour getTourReservado() {
+		return tourReservado;
+	}
+	public void setTourReservado(Tour tourReservado) {
+		this.tourReservado = tourReservado;
+	}
+	public Cliente getClienteReserva() {
+		return clienteReserva;
+	}
+	public void setClienteReserva(Cliente clienteReserva) {
+		this.clienteReserva = clienteReserva;
+	}
 	public long getNumeroReservas() {
 		return numeroReservas;
 	}
@@ -36,12 +50,14 @@ public class Reserva {
 		this.cantidadPersona = cantidadPersona;
 	}
 	
-	public Reserva(long numeroReservas, Calendar fecha, boolean pagado, int cantidadPersona) {
+	public Reserva(long numeroReservas, Calendar fecha, boolean pagado, int cantidadPersona, Tour tourReservado, Cliente clienteReserva) {
 		super();
 		this.numeroReservas = numeroReservas;
 		this.fecha = fecha;
 		this.pagado = pagado;
 		this.cantidadPersona = cantidadPersona;
+		this.tourReservado = tourReservado;
+		this.clienteReserva = clienteReserva;
 	}
 	
 	
