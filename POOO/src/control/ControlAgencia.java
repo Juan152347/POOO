@@ -40,7 +40,7 @@ public class ControlAgencia {
 		HashMap<Long, Tour> toursEcologicos = new HashMap<>();
 		long cont = 0;
 		
-		for (Tour tourE : listaTours.values()) {
+		for (Tour tourE : listaTours.values()) { 
 			if(tourE instanceof Ecologico) {
 				toursEcologicos.put(cont, tourE);
 				cont++;
