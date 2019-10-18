@@ -13,7 +13,7 @@ public class ControlAgencia {
 	private GestionTours gestiontours;
 	private Map<Long, Tour> listaTours = new HashMap<>();
 	private Map<Long, Cliente> listaClientes = new HashMap<>();
-	private ArrayList<Reserva> reservas;
+	private Map<Long,Reserva> reservas=new HashMap<>();
 
 	public void verListatours() {
 		for (Tour tour : listaTours.values()) {
