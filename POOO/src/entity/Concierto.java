@@ -5,9 +5,9 @@ public class Concierto extends ServicioAdicional {
 	private String lugar;
 	private String horaIngreso;
 
-	public Concierto(long codigoServicio, String descripcion, double precio, String artista, String lugar,
+	public Concierto( String descripcion, double precio, String artista, String lugar,
 	String horaIngreso) {
-	super(codigoServicio, descripcion, precio);
+	super( descripcion, precio);
 	this.artista = artista;
 	this.lugar = lugar;
 	this.horaIngreso = horaIngreso;
