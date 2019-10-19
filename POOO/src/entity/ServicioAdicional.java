@@ -2,19 +2,12 @@ package entity;
 
 public abstract class   ServicioAdicional {
  
-	public long codigoServicio;
+	
 	public String descripcion;
 	public double precio;
 	
 	
-	public long getCodigoServicio() {
-		return codigoServicio;
-	}
-
-
-	public void setCodigoServicio(long codigoServicio) {
-		this.codigoServicio = codigoServicio;
-	}
+	
 
 
 	public String getDescripcion() {
@@ -37,14 +30,15 @@ public abstract class   ServicioAdicional {
 	}
 
 
-	public ServicioAdicional(long codigoServicio, String descripcion, double precio) {
+	public ServicioAdicional( String descripcion, double precio) {
 	
-		this.codigoServicio = codigoServicio;
 		this.descripcion = descripcion;
 		this.precio = precio;
 	}
 
-
+    public String toString() {
+    	return "descripcion:"+" "+this.descripcion+"/n"+"precio:"+" "+this.precio;
+    }
 
 	public abstract double calcularPrecio();
 	

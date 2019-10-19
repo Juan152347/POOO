@@ -2,6 +2,8 @@ package entity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Reserva {
 
@@ -11,8 +13,14 @@ public class Reserva {
 	private int cantidadPersona;
 	private Tour tourReservado;
 	private Cliente clienteReserva;
-	private ArrayList<ServicioAdicional> serviciosAdicionales;
+	private Map<Integer,ServicioAdicional> serviciosAdicionales=new HashMap<>();
 	
+	public Map<Integer, ServicioAdicional> getServiciosAdicionales() {
+		return serviciosAdicionales;
+	}
+	public void setServiciosAdicionales(Map<Integer, ServicioAdicional> serviciosAdicionales) {
+		this.serviciosAdicionales = serviciosAdicionales;
+	}
 	public Tour getTourReservado() {
 		return tourReservado;
 	}
@@ -59,6 +67,9 @@ public class Reserva {
 		this.tourReservado = tourReservado;
 		this.clienteReserva = clienteReserva;
 	}
+	public Reserva() {
+	}
+	
 	
 	
 }
