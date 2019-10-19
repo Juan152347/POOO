@@ -149,20 +149,119 @@ public class ControlAgencia {
 			System.out.println("Servicios adicionales");
 			for (Map.Entry<Integer, ServicioAdicional> servicioadicional : reservas.get(condr).getServiciosAdicionales()
 					.entrySet()) {
-				System.out.println("codigo:" + " " + servicioadicional.getKey() + " " + servicioadicional.getValue().toString());
-				ac+=servicioadicional.getValue().getPrecio();
+				System.out.println(
+						"codigo:" + " " + servicioadicional.getKey() + " " + servicioadicional.getValue().toString());
+				ac += servicioadicional.getValue().getPrecio();
 			}
-			System.out.println("precio total: "+calcularprecioreserva(reservas.get(condr).getCantidadPersona(),reservas.get(condr).getTourReservado())+ac);
+			System.out.println("precio total: " + calcularprecioreserva(reservas.get(condr).getCantidadPersona(),
+					reservas.get(condr).getTourReservado()) + ac);
 		} else {
 			System.out.println("no existe el tour o el cliente");
 		}
 
 	}
-    public void modificarreserva() {
-    	System.out.println("¿que reserva desea modificar?");
-    	Scanner sc= new Scanner(System.in);
-    	
-    }
+
+	public void modificarreserva() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("¿que reserva desea modificar?");
+		long a = sc.nextLong();
+		char op3 = 'a';
+
+		if (reservas.get(a) != null) {
+			System.out.println("¿que desea modificar?");
+			System.out.println("1. fecha");
+			System.out.println("2. cantidad de personas");
+			System.out.println("3. servicios adicionales");
+			int op = sc.nextInt();
+
+			switch (op) {
+			case 1:
+				boolean fval = false;
+				while (!fval) {
+					Calendar ncal = Calendar.getInstance();
+					System.out.println("digite el dia:");
+					int dia = sc.nextInt();
+					System.out.println("digite el mes:");
+					int mes = sc.nextInt();
+					System.out.println("digite el año:");
+					int ano = sc.nextInt();
+					ncal.set(ano, mes, dia);
+					ncal.set(Calendar.HOUR_OF_DAY, 0);
+					ncal.set(Calendar.MINUTE, 0);
+					ncal.set(Calendar.SECOND, 0);
+					ncal.set(Calendar.MILLISECOND, 0);
+					fval = valfecha(ncal);
+					if (fval) {
+						reservas.get(a).setFecha(ncal);
+					}
+				}
+				break;
+			case 2:
+				System.out.println("digite cuantas personas:");
+				reservas.get(a).setCantidadPersona(sc.nextInt());
+				break;
+			case 3:
+				System.out.println("servicios adicionales disponibles");
+				for (Map.Entry<Integer, ServicioAdicional> servicioAdicional : serviciosadicionalesgen.entrySet()) {
+					System.out.println("codigo:" + " " + servicioAdicional.getKey() + "/n"
+							+ servicioAdicional.getValue().toString());
+				}
+				System.out.println("servicios adicionales en la reserva:");
+				for (Map.Entry<Integer, ServicioAdicional> servicioAdicional : reservas.get(a).getServiciosAdicionales()
+						.entrySet()) {
+					System.out.println("codigo:" + " " + servicioAdicional.getKey() + "/n"
+							+ servicioAdicional.getValue().toString());
+				}
+				System.out.println("¿desea quitar o agregar servicios adicionales? Q/A");
+				char op2 = sc.next().charAt(0);
+				if (op2 == 'q' || op2 == 'Q') {
+
+					do {
+						System.out.println("¿que servicio desea quitar?");
+						int qser = sc.nextInt();
+						reservas.get(a).getServiciosAdicionales().remove(qser);
+						System.out.println("¿desea quitar otro servicio? S/N");
+						op3 = sc.next().charAt(0);
+					} while (op3 != 'n' || op3 != 'N');
+				} else if (op2 == 'a' || op2 == 'A') {
+					do {
+						System.out.println("¿que servicio desea agregar?");
+						int aser = sc.nextInt();
+						reservas.get(a).getServiciosAdicionales().put(aser, serviciosadicionalesgen.get(aser));
+						System.out.println("desea agregar otro S/N");
+						op3 = sc.next().charAt(0);
+					} while (op3 != 'n' || op3 != 'N');
+				}
+				break;
+			default:
+				break;
+			}
+		} else {
+			System.out.println("la reserva no existe");
+		}
+
+	}
+	public void eliminarreserva() {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("digite el codigo de la reserva");
+		long cod=sc.nextLong();
+	    if(reservas.get(cod)!=null) {
+	    	reservas.remove(cod);
+	    	System.out.println("eliminacion exitosa");
+	    }else {
+	    	System.out.println("no se encontro la reserva");
+	    }
+	}
+
+	public boolean valfecha(Calendar cal) {
+		for (Reserva reserva : reservas.values()) {
+			if (reserva.getFecha().equals(cal)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public boolean validarFecha(Calendar fecha) {
 		Calendar fechaA = Calendar.getInstance();
 		long mils = Math.abs(fechaA.getTimeInMillis() - fecha.getTimeInMillis());
