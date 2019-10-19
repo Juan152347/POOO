@@ -158,7 +158,11 @@ public class ControlAgencia {
 		}
 
 	}
-
+    public void modificarreserva() {
+    	System.out.println("¿que reserva desea modificar?");
+    	Scanner sc= new Scanner(System.in);
+    	
+    }
 	public boolean validarFecha(Calendar fecha) {
 		Calendar fechaA = Calendar.getInstance();
 		long mils = Math.abs(fechaA.getTimeInMillis() - fecha.getTimeInMillis());
