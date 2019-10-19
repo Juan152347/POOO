@@ -1,9 +1,9 @@
 package control;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import entity.Cliente;
@@ -19,7 +19,7 @@ public class ControlAgencia {
 	private Map<Long, Tour> listaTours = new HashMap<>();
 	private Map<Long, Cliente> listaClientes = new HashMap<>();
 	private Map<Long, Reserva> reservas = new HashMap<>();
-	private Map<Integer,ServicioAdicional> serviciosadicionalesgen=new HashMap<>();
+	private Map<Integer, ServicioAdicional> serviciosadicionalesgen = new HashMap<>();
 
 	public void verListatours() {
 		for (Tour tour : listaTours.values()) {
@@ -79,6 +79,7 @@ public class ControlAgencia {
 
 	public void reservartour() {
 		Scanner sc = new Scanner(System.in);
+		Calendar cal = Calendar.getInstance();
 		boolean estac = false;
 		boolean estat = false;
 		Reserva nreserva = new Reserva();
@@ -96,8 +97,8 @@ public class ControlAgencia {
 		Tour auxt = listaTours.get(codt);
 		if (estat && estac) {
 			boolean fval = false;
-			do {				
-				Calendar cal = Calendar.getInstance();
+			do {
+
 				System.out.println("digite el dia:");
 				int dia = sc.nextInt();
 				System.out.println("digite el mes:");
@@ -114,19 +115,46 @@ public class ControlAgencia {
 				}
 			} while (!fval);
 			System.out.println("desea servicios adicionales S/N:");
-			char op=sc.next().charAt(0);
-			if(op=='s'||op=='S') {
+			char op = sc.next().charAt(0);
+			if (op == 's' || op == 'S') {
 				for (Map.Entry<Integer, ServicioAdicional> servicioAdicional : serviciosadicionalesgen.entrySet()) {
-					System.out.println("codigo:"+" "+servicioAdicional.getKey()+"/n"+servicioAdicional.getValue().toString());
+					System.out.println("codigo:" + " " + servicioAdicional.getKey() + "/n"
+							+ servicioAdicional.getValue().toString());
 				}
-				char op2='0';
+				char op2 = '0';
 				do {
 					System.out.println("digite el codigo de servicio adicional que desea agregar");
-					int cs=sc.nextInt();
-					
-					
-				}while(op2!='n'|| op2!='N');
+					int cs = sc.nextInt();
+					if (serviciosadicionalesgen.get(cs) != null) {
+						nreserva.getServiciosAdicionales().put(cs, serviciosadicionalesgen.get(cs));
+						System.out.println("agregado exitosamente");
+					} else {
+						System.out.println("no se encontro el servicio adicional");
+					}
+					System.out.println("¿desea continuar? S/N");
+					op2 = sc.next().charAt(0);
+				} while (op2 != 'n' || op2 != 'N');
 			}
+			nreserva.setTourReservado(auxt);
+			nreserva.setClienteReserva(auxc);
+			nreserva.setFecha(cal);
+			Long condr = numerodereserva();
+			reservas.put(condr, nreserva);
+			double ac = 0;
+			System.out.println("Codigo:" + " " + condr);
+			System.out.println("Fecha:" + " " + reservas.get(condr).getFecha().getTime());
+			System.out.println("Cantidad de personas:" + " " + reservas.get(condr).getCantidadPersona());
+			System.out.println("Tour:" + " " + reservas.get(condr).getTourReservado().getNombreComercial());
+			System.out.println("Cliente:" + " " + reservas.get(condr).getClienteReserva().getNombrecompleto());
+			System.out.println("Servicios adicionales");
+			for (Map.Entry<Integer, ServicioAdicional> servicioadicional : reservas.get(condr).getServiciosAdicionales()
+					.entrySet()) {
+				System.out.println("codigo:" + " " + servicioadicional.getKey() + " " + servicioadicional.getValue().toString());
+				ac+=servicioadicional.getValue().getPrecio();
+			}
+			System.out.println("precio total: "+calcularprecioreserva(reservas.get(condr).getCantidadPersona(),reservas.get(condr).getTourReservado())+ac);
+		} else {
+			System.out.println("no existe el tour o el cliente");
 		}
 
 	}
@@ -150,6 +178,12 @@ public class ControlAgencia {
 			}
 		}
 		return false;
+	}
+
+	public double calcularprecioreserva(int cantidad, Tour tour) {
+		double can = tour.getPrecio() * 0.25;
+		double ptotal = tour.getPrecio() + (can * cantidad - 1);
+		return ptotal;
 	}
 
 }
