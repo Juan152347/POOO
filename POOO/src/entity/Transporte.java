@@ -32,10 +32,10 @@ public class Transporte extends ServicioAdicional {
 		this.numeroPasajeros = numeroPasajeros;
 	}
 
-	public Transporte(long codigoServicio, String descripcion, double precio, double distancia, TipoTransporte tipo,
+	public Transporte( String descripcion, double precio, double distancia, TipoTransporte tipo,
 			int numeroPasajeros) {
 
-		super(codigoServicio, descripcion, precio);
+		super(descripcion, precio);
 		this.distancia = distancia;
 		this.tipo = tipo;
 		this.numeroPasajeros = numeroPasajeros;
