@@ -288,5 +288,10 @@ public class ControlAgencia {
 		double ptotal = tour.getPrecio() + (can * cantidad - 1);
 		return ptotal;
 	}
+	public void verreservas() {
+		for (Map.Entry<Long, Reserva> reserva : reservas.entrySet()) {
+			System.out.println("codigo "+reserva.getKey()+reserva.getValue().toString());
+		}
+	}
 
 }
