@@ -66,7 +66,7 @@ public class PantallaAgencia {
       Date fs9=c.getTime();
       c.set(2020, 8, 15);
       Date fr9=c.getTime();
-      /*
+      
       gt.insertarTour((long)9865321, "nc1", "lp1", fr1, fs1, 1000, co.getListaTours());
       gt.insertarTour((long)7896325, "nc2", "lp2", fr2, fs2, 1000, co.getListaTours());
       gt.insertarTour((long)9856475, "nc3", "lp3", fr3, fs3, 1000, co.getListaTours());
@@ -81,8 +81,7 @@ public class PantallaAgencia {
       co.reservartour();
       co.verreservas();
       co.modificarreserva();
-      co.verreservas();*/
-      co.llenarTours();
-      co.verListatours();
+      co.verreservas();
+      
 	}
 }
