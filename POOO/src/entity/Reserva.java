@@ -76,7 +76,7 @@ public class Reserva {
 	}
 
 	public String toString() {
-		return "fecha: " + this.fecha + " " + "estado de pago: " + this.pagado + " " + "cantidad de personas: "
+		return "fecha: " + this.fecha.getTime() + " " + "estado de pago: " + this.pagado + " " + "cantidad de personas: "
 				+ this.cantidadPersona + " " + "tour: " + this.tourReservado.getNombreComercial() + " " + "cliente: "
 				+ this.clienteReserva;
 	}

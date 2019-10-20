@@ -127,12 +127,12 @@ public class ControlAgencia {
 
 	public HashMap<Long, Tour> ecologico() {
 		HashMap<Long, Tour> toursEcologicos = new HashMap<>();
-		long cont = 0;
+	
 
-		for (Tour tourE : listaTours.values()) {
-			if (tourE instanceof Ecologico) {
-				toursEcologicos.put(cont, tourE);
-				cont++;
+		for (Map.Entry<Long, Tour> tourE : listaTours.entrySet()) {
+			if (tourE.getValue() instanceof Ecologico) {
+				toursEcologicos.put(tourE.getKey(), tourE.getValue());
+
 			}
 		}
 		return toursEcologicos;
@@ -204,7 +204,7 @@ public class ControlAgencia {
 			char op = sc.next().charAt(0);
 			if (op == 's' || op == 'S') {
 				for (Map.Entry<Integer, ServicioAdicional> servicioAdicional : serviciosadicionalesgen.entrySet()) {
-					System.out.println("codigo:" + " " + servicioAdicional.getKey() + "/n"
+					System.out.println("codigo:" + " " + servicioAdicional.getKey() + " "
 							+ servicioAdicional.getValue().toString());
 				}
 				char op2 = 's';
@@ -259,8 +259,8 @@ public class ControlAgencia {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("¿que reserva desea modificar?");
 		long a = sc.nextLong();
-		char op3 = 'a';
-
+		char op3 = 's';
+        char op4 = 's';
 		if (reservas.get(a) != null) {
 			System.out.println("¿que desea modificar?");
 			System.out.println("1. fecha");
@@ -306,6 +306,7 @@ public class ControlAgencia {
 					System.out.println("codigo:" + " " + servicioAdicional.getKey() + "/n"
 							+ servicioAdicional.getValue().toString());
 				}
+				do {
 				System.out.println("¿desea quitar o agregar servicios adicionales? Q/A");
 				char op2 = sc.next().charAt(0);
 				if (op2 == 'q' || op2 == 'Q') {
@@ -316,7 +317,7 @@ public class ControlAgencia {
 						reservas.get(a).getServiciosAdicionales().remove(qser);
 						System.out.println("¿desea quitar otro servicio? S/N");
 						op3 = sc.next().charAt(0);
-					} while (op3 != 'n' || op3 != 'N');
+					} while (op3 =='s');
 				} else if (op2 == 'a' || op2 == 'A') {
 					do {
 						System.out.println("¿que servicio desea agregar?");
@@ -324,8 +325,11 @@ public class ControlAgencia {
 						reservas.get(a).getServiciosAdicionales().put(aser, serviciosadicionalesgen.get(aser));
 						System.out.println("desea agregar otro S/N");
 						op3 = sc.next().charAt(0);
-					} while (op3 != 'n' || op3 != 'N');
+					} while (op3 == 's');
 				}
+				System.out.println("¿desea otro cambio en servicios adiciales?");
+				op4=sc.next().charAt(0);
+				}while(op4=='s');
 				break;
 			default:
 				break;
@@ -386,7 +390,7 @@ public class ControlAgencia {
 
 	public void verreservas() {
 		for (Map.Entry<Long, Reserva> reserva : reservas.entrySet()) {
-			System.out.println("codigo " + reserva.getKey() + reserva.getValue().toString());
+			System.out.println("codigo " +" "+ reserva.getKey() +" "+ reserva.getValue().toString());
 		}
 	}
 
