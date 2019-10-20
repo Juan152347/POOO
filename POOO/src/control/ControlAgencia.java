@@ -18,12 +18,48 @@ import enu.TipoEmpresa;
 public class ControlAgencia {
 	private GestionCliente gestioncliente;
 	private GestionTours gestiontours;
-	private Map<Long, Tour> listaTours = new HashMap<>();
-	private Map<Long, Cliente> listaClientes = new HashMap<>();
+	private HashMap<Long, Tour> listaTours = new HashMap<>();
+	private HashMap<Long, Cliente> listaClientes = new HashMap<>();
 	private Map<Long, Reserva> reservas = new HashMap<>();
 	private Map<Integer, ServicioAdicional> serviciosadicionalesgen = new HashMap<>();
 	
 	
+	public GestionCliente getGestioncliente() {
+		return gestioncliente;
+	}
+	public void setGestioncliente(GestionCliente gestioncliente) {
+		this.gestioncliente = gestioncliente;
+	}
+	public GestionTours getGestiontours() {
+		return gestiontours;
+	}
+	public void setGestiontours(GestionTours gestiontours) {
+		this.gestiontours = gestiontours;
+	}
+	public HashMap<Long, Tour> getListaTours() {
+		return listaTours;
+	}
+	public void setListaTours(HashMap<Long, Tour> listaTours) {
+		this.listaTours = listaTours;
+	}
+	public HashMap<Long, Cliente> getListaClientes() {
+		return listaClientes;
+	}
+	public void setListaClientes(HashMap<Long, Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
+	public Map<Long, Reserva> getReservas() {
+		return reservas;
+	}
+	public void setReservas(Map<Long, Reserva> reservas) {
+		this.reservas = reservas;
+	}
+	public Map<Integer, ServicioAdicional> getServiciosadicionalesgen() {
+		return serviciosadicionalesgen;
+	}
+	public void setServiciosadicionalesgen(Map<Integer, ServicioAdicional> serviciosadicionalesgen) {
+		this.serviciosadicionalesgen = serviciosadicionalesgen;
+	}
 	public void llenarTours() {
 		Date s1=new Date(120,1,3);
 		Date r1=new Date(120,2,5);
@@ -48,14 +84,14 @@ public class ControlAgencia {
 	}
 
 	public void verListatours() {
-		for (Tour tour : listaTours.values()) {
-			System.out.println(tour.toString());
+		for (Map.Entry<Long, Tour> tour : listaTours.entrySet()) {
+			System.out.println("codigo:"+" "+tour.getKey()+" "+tour.getValue().toString());
 		}
 	}
 
 	public void verListacliente() {
-		for (Cliente cliente : listaClientes.values()) {
-			System.out.println(cliente.toString());
+		for (Map.Entry<Long, Cliente> cliente : listaClientes.entrySet()) {
+			System.out.println("codigo:"+" "+cliente.getKey()+" "+cliente.getValue().toString());
 		}
 	}
 

@@ -28,7 +28,7 @@ public class Cliente {
 	public Cliente() {
 	}
 	public String toString() {
-		return "Nombre completo:"+" "+this.nombrecompleto+"/n"+"Telefono de contacto:"+" "+this.telefonodecontacto;
+		return "Nombre completo:"+" "+this.nombrecompleto+" "+"Telefono de contacto:"+" "+this.telefonodecontacto;
 	}
 
 }
