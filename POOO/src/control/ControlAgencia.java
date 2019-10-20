@@ -13,6 +13,7 @@ import entity.Empresarial;
 import entity.Reserva;
 import entity.ServicioAdicional;
 import entity.Tour;
+import enu.TipoEmpresa;
 
 public class ControlAgencia {
 	private GestionCliente gestioncliente;
@@ -21,6 +22,30 @@ public class ControlAgencia {
 	private Map<Long, Cliente> listaClientes = new HashMap<>();
 	private Map<Long, Reserva> reservas = new HashMap<>();
 	private Map<Integer, ServicioAdicional> serviciosadicionalesgen = new HashMap<>();
+	
+	
+	public void llenarTours() {
+		Date s1=new Date(120,1,3);
+		Date r1=new Date(120,2,5);
+	    Date s2=new Date(120,3,20);
+	    Date r2=new Date(120,4,1); 
+	    Date s3=new Date(120,7,6);
+	    Date r3=new Date(120,8,6);
+		Tour t1=new Tour("Tour1","Lugar1",s1,r1,1000);
+		Ecologico t2=new Ecologico("Tour2","Lugar2",s2,r2,1500,true,500,false);
+		Empresarial t3=new Empresarial("Tour3","Lugar3",s3,r3,2000,"e1",true,TipoEmpresa.TECNOLOGIA);
+		listaTours.put((long)552, t1);
+		listaTours.put((long)565, t2);
+		listaTours.put((long)865, t3);
+	}
+	public void llenarClientes() {
+		Cliente c1=new Cliente("nombre1","1111111");
+		Cliente c2=new Cliente("nombre2","2222222");
+		Cliente c3=new Cliente("nombre3","3333333");
+		listaClientes.put((long)1567987, c1);
+		listaClientes.put((long)8657423, c2);
+		listaClientes.put((long)7894561, c3);
+	}
 
 	public void verListatours() {
 		for (Tour tour : listaTours.values()) {

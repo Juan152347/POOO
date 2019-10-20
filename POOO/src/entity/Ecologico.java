@@ -1,6 +1,6 @@
 package entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Ecologico extends Tour {
 	private boolean vacunacionRequerida;
