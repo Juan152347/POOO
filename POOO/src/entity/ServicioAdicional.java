@@ -37,7 +37,7 @@ public abstract class   ServicioAdicional {
 	}
 
     public String toString() {
-    	return "descripcion:"+" "+this.descripcion+"/n"+"precio:"+" "+this.precio;
+    	return "descripcion:"+" "+this.descripcion+" "+"precio:"+" "+this.precio;
     }
 
 	public abstract double calcularPrecio();

@@ -75,6 +75,8 @@ public class PantallaAgencia {
       gt.insertarTourEm((long)5462318, "nc7", "lp7", fr7, fs7, 3000, co.getListaTours(), "ne1", false, TipoEmpresa.MEDIO_COMUNICACION);
       gt.insertarTourEm((long)9632000, "nc8", "lp8", fr8, fs8, 3000, co.getListaTours(), "ne2", true, TipoEmpresa.TECNOLOGIA);
       gt.insertarTourEm((long)5603267, "nc9", "lp9", fr9, fs9, 3000, co.getListaTours(), "ne3", false, TipoEmpresa.TURISMO);
-      
+      co.verListatours();
+      co.llenarservicosa();
+      co.reservartour();
 	}
 }
