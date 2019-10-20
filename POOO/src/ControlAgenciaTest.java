@@ -13,7 +13,7 @@ class ControlAgenciaTest {
 	void testecologico() {
 	ca.llenarTours();
 	HashMap<Long, Tour>ecologicos=ca.ecologico();
-	assertNull(ecologicos.get(4569874));
+	assertNotNull(ecologicos.get(4569874));
     //assertNull(ecologicos.get(6532148));
 	}
 
