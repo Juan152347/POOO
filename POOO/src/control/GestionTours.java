@@ -6,7 +6,10 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import entity.Ecologico;
+import entity.Empresarial;
 import entity.Tour;
+import enu.TipoEmpresa;
 
 public class GestionTours {
 	public boolean insertarTour(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso,
@@ -25,7 +28,38 @@ public class GestionTours {
 		}
 		return true;
 	}
+	public boolean insertarTourEc(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso,
+			Date fechaSalida, double precio, HashMap<Long, Tour> listatours,boolean vacunacionRequerida,double impuestoLocal,boolean dificilAcceso) {
 
+		ControlAgencia ca = new ControlAgencia();
+		Ecologico ntour = new Ecologico(nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio,vacunacionRequerida,impuestoLocal,dificilAcceso);
+
+		if (ca.validarTour(codigoIdentidad) == true) {
+			listatours.put(codigoIdentidad, ntour);
+
+		}
+		if (ca.validarTour(codigoIdentidad) == false) {
+			System.out.println("codigo no permitido");
+			return false;
+		}
+		return true;
+	}
+	public boolean insertarTourEm(long codigoIdentidad, String nombreComercial, String lugarPartida, Date fechaRegreso,
+			Date fechaSalida, double precio, HashMap<Long, Tour> listatours,String nombreEmpresa,boolean viajeroFrecuente,TipoEmpresa tipo) {
+
+		ControlAgencia ca = new ControlAgencia();
+		Empresarial ntour = new Empresarial(nombreComercial, lugarPartida, fechaRegreso, fechaSalida, precio,nombreEmpresa,viajeroFrecuente,tipo);
+
+		if (ca.validarTour(codigoIdentidad) == true) {
+			listatours.put(codigoIdentidad, ntour);
+
+		}
+		if (ca.validarTour(codigoIdentidad) == false) {
+			System.out.println("codigo no permitido");
+			return false;
+		}
+		return true;
+	}
 	public void ModificarTour(long codigo, HashMap<Long, Tour> listatours) {
 
 		Scanner x = new Scanner(System.in);

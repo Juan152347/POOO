@@ -58,7 +58,7 @@ public class Tour {
 	public String toString() {
 	    return  "Nombre Comercial:"+" "+
 	      this.nombreComercial+" "+"Lugar de partida:"+" "+this.lugarPartida+" "+"fecha regreso:"+" "+
-	    this.fechaRegreso+" "+"fecha salid	a:"+" "+this.fechaSalida+" "+"precio:"+" "+this.precio;
+	    this.fechaRegreso+" "+"fecha salida:"+" "+this.fechaSalida+" "+"precio:"+" "+this.precio;
 	}
 	
 	public int  calcularEstadia () {

@@ -61,18 +61,29 @@ public class ControlAgencia {
 		this.serviciosadicionalesgen = serviciosadicionalesgen;
 	}
 	public void llenarTours() {
-		Date s1=new Date(120,1,3);
-		Date r1=new Date(120,2,5);
-	    Date s2=new Date(120,3,20);
-	    Date r2=new Date(120,4,1); 
-	    Date s3=new Date(120,7,6);
-	    Date r3=new Date(120,8,6);
-		Tour t1=new Tour("Tour1","Lugar1",s1,r1,1000);
-		Ecologico t2=new Ecologico("Tour2","Lugar2",s2,r2,1500,true,500,false);
-		Empresarial t3=new Empresarial("Tour3","Lugar3",s3,r3,2000,"e1",true,TipoEmpresa.TECNOLOGIA);
-		listaTours.put((long)552, t1);
-		listaTours.put((long)565, t2);
-		listaTours.put((long)865, t3);
+		Calendar c=Calendar.getInstance();
+		c.set(Calendar.HOUR_OF_DAY, 0);
+		c.set(Calendar.MINUTE, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MILLISECOND, 0);
+		c.set(2020, 1, 3);
+		Date s1=c.getTime();
+		c.set(2020, 2, 5);
+		Date r1=c.getTime();
+		c.set(2020, 3, 20);
+	    Date s2=c.getTime();
+	    c.set(2020, 4, 1);
+	    Date r2=c.getTime();
+	    c.set(2020, 7, 6);
+	    Date s3=c.getTime();
+	    c.set(2020, 8, 6);
+	    Date r3=c.getTime();
+		Tour t1=new Tour("Tour1","Lugar1",r1,s1,1000);
+		Ecologico t2=new Ecologico("Tour2","Lugar2",r2,s2,1500,true,500,false);
+		Empresarial t3=new Empresarial("Tour3","Lugar3",r3,s3,2000,"e1",true,TipoEmpresa.TECNOLOGIA);
+		listaTours.put((long)6932548, t1);
+		listaTours.put((long)4569874, t2);
+		listaTours.put((long)6532148, t3);
 	}
 	public void llenarClientes() {
 		Cliente c1=new Cliente("nombre1","1111111");
