@@ -1,5 +1,6 @@
 package control;
 
+import java.util.Date;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -241,16 +242,17 @@ public class ControlAgencia {
 		}
 
 	}
+
 	public void eliminarreserva() {
-		Scanner sc= new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("digite el codigo de la reserva");
-		long cod=sc.nextLong();
-	    if(reservas.get(cod)!=null) {
-	    	reservas.remove(cod);
-	    	System.out.println("eliminacion exitosa");
-	    }else {
-	    	System.out.println("no se encontro la reserva");
-	    }
+		long cod = sc.nextLong();
+		if (reservas.get(cod) != null) {
+			reservas.remove(cod);
+			System.out.println("eliminacion exitosa");
+		} else {
+			System.out.println("no se encontro la reserva");
+		}
 	}
 
 	public boolean valfecha(Calendar cal) {
@@ -288,10 +290,31 @@ public class ControlAgencia {
 		double ptotal = tour.getPrecio() + (can * cantidad - 1);
 		return ptotal;
 	}
+
 	public void verreservas() {
 		for (Map.Entry<Long, Reserva> reserva : reservas.entrySet()) {
-			System.out.println("codigo "+reserva.getKey()+reserva.getValue().toString());
+			System.out.println("codigo " + reserva.getKey() + reserva.getValue().toString());
 		}
+	}
+
+	public void verreserva(long codt, Calendar fecha) {
+		String nombre = listaTours.get(codt).getNombreComercial();
+		for (Reserva reserva : reservas.values()) {
+			if (reserva.getTourReservado().getNombreComercial().equals(nombre) && reserva.getFecha().equals(fecha)) {
+				System.out.println(reserva.toString());
+			}
+		}
+	}
+
+	public double precioReservasToursEcologicosPorFecha(Date fechaInicio, Date fechaFinal) {
+		HashMap<Long, Tour> ecologicos = ecologico();
+		double ac = 0;
+		for (Tour toure : ecologicos.values()) {
+			if (toure.getFechaSalida().before(fechaInicio) && toure.getFechaSalida().after(fechaFinal)) {
+				ac += toure.getPrecio();
+			}
+		}
+		return ac;
 	}
 
 }
