@@ -55,17 +55,13 @@ public class GestionCliente {
 		}
 	}
 
-	public void eliminarCliente(long cod, long codr, HashMap<Long, Cliente> listaclientes,
-			HashMap<Long, Reserva> listareservas) {
+	public void eliminarCliente(long cod, HashMap<Long, Cliente> listaclientes) {
 		boolean esta=false;
-		boolean eliminable=true;
 		if (listaclientes.get(cod) != null) {
              esta=true;
 		}
-	    if(listareservas.get(codr).getClienteReserva().getNombrecompleto().equals(listaclientes.get(cod).getNombrecompleto())) {
-	    	eliminable=false;
-	    }
-		if (eliminable) {
+	   
+		if (esta) {
 			listaclientes.remove(cod);
 		}
 	}
